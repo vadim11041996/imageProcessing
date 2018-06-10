@@ -12,12 +12,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
-jimp.read("img/lena.jpg", function (err, lenna) {
+jimp.read("img/test.jpg", function (err, img) {
     if (err) throw err;
-    lenna.resize(256, 256)            // resize
+    img.resize(512, 512)            // resize
         .quality(60)                 // set JPEG quality
         .greyscale()                 // set greyscale
-        .write("lena-small-bw.jpg"); // save
+        .write("imgAfter/img-x.jpg"); // save
 });
 
 app.get('/', (req, res) =>{
