@@ -17,6 +17,9 @@ jimp.read("img/test.jpg", function (err, img) {
     img.resize(512, 512)            // resize
         .quality(60)                 // set JPEG quality
         .greyscale()                 // set greyscale
+        .getBase64(jimp.AUTO, function (err, src) {
+            if (err) throw err;
+        })
         .write("imgAfter/img-x.jpg"); // save
 });
 
